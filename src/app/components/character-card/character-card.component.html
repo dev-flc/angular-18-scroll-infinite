@@ -1,0 +1,15 @@
+@let characterInfo = character();
+
+<div>
+  @if (characterInfo) {
+    <div>
+      <h2>{{ characterInfo.name }}</h2>
+      <img
+        [ngSrc]="characterInfo.image"
+        [alt]="characterInfo.name"
+        width="200"
+        height="200"
+      />
+    </div>
+  }
+</div>
