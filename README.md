@@ -1,6 +1,6 @@
 # angular-18-scroll-infinite
 
-####
+#### config bun
 
 ```sh
 
@@ -14,8 +14,7 @@
 
 
 
+#### config new schematics eslint
 ```sh
-# Add new schematics eslint
-ng add @angular-eslint/schematics
-
+  ng add @angular-eslint/schematics
 ```
