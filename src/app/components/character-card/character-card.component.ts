@@ -1,11 +1,11 @@
-import { ChangeDetectionStrategy, Component, input, InputSignal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, InputSignal, output } from '@angular/core';
 import { Character } from '../../models/characters.model';
-import { NgOptimizedImage } from '@angular/common';
+import { JsonPipe, NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-character-card',
   standalone: true,
-  imports: [NgOptimizedImage],
+  imports: [NgOptimizedImage, JsonPipe],
   templateUrl: './character-card.component.html',
   styleUrl: './character-card.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -13,5 +13,11 @@ import { NgOptimizedImage } from '@angular/common';
 export class CharacterCardComponent {
 
   character = input.required<Character>();
+  characterInfo = input<Character>();
+  loaded = output<string>();
+
+  ngOnInit() {
+    this.loaded.emit(this.character().url);
+  }
 
 }
